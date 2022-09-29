@@ -1,0 +1,112 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 34px;
+  line-height: 48px;
+  position: relative;
+}
+a {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffffffb9;
+  cursor: pointer;
+}
+a:focus {
+  color: #ffffff96;
+}
+.temperature {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  line-height: 60px;
+  margin-top: 20px;
+  position: relative;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid white;
+  background: white;
+  color: #353535;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+  line-height: 16px;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #ffffffb9;
+}
+.main-text {
+  text-align: center;
+  position: relative;
+}
+.additional-text {
+  color: white;
+  position: relative;
+  font-size: 13px;
+  padding-top: 10px;
+}
+.wheather-future {
+  background-color: #353535cc;
+  opacity: 80%;
+}
+.wheather {
+  position: relative;
+  padding: 48px 0;
+}
+.search {
+  color: #353535;
+}
+.search-row {
+  margin-top: 20px;
+}
+video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.big-icon {
+  position: relative;
+  font-size: 40px;
+  color: white;
+  text-align: right;
+}
+.small-icon {
+  font-size: 28px;
+  text-align: center;
+}
+.forecast {
+  text-align: center;
+  font-size: 20px;
+}
+.small-text {
+  text-align: center;
+  font-size: 13px;
+}
+.days {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
