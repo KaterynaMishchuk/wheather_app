@@ -110,3 +110,24 @@ ul {
   list-style: none;
   padding: 0;
 }
+.git {
+  text-align: center;
+  position: relative;
+  color: rgb(20, 20, 20);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+.gitLink {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  position: relative;
+  color: rgb(64, 173, 0);
+  text-decoration: none;
+}
+.gitLink:hover {
+  color: rgb(110, 199, 58);
+  cursor: pointer;
+}
+.gitLink:focus {
+  color: rgb(75, 80, 73);
+}
