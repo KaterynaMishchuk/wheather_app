@@ -69,11 +69,14 @@ function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let cityShown = response.data.name;
   let countryShown = response.data.sys.country;
-  let description = response.data.wheather[0].description;
+  let humidityP = document.querySelector("#humidity");
+  let windS = document.querySelector("#wind");
   tempNow.innerHTML = `${temperature}`;
   cityNow.innerHTML = `${cityShown}`;
   countryNow.innerHTML = `${countryShown}`;
-  descriptionElement.innerHTML = `${description}`;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  windS.innerHTML = Math.round(response.data.wind.speed);
+  humidityP.innerHTML = response.data.main.humidity;
 }
 
 function handlePosition(position) {
