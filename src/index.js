@@ -73,6 +73,7 @@ function showTemperature(response) {
   let windS = document.querySelector("#wind");
   let dateEl = document.querySelector("#nowDate");
   let timeEl = document.querySelector("#nowTime");
+  let iconElement = document.querySelector("#icon");
   tempdate.innerHTML = `${temperature}`;
   citydate.innerHTML = `${cityShown}`;
   countrydate.innerHTML = `${countryShown}`;
@@ -81,6 +82,11 @@ function showTemperature(response) {
   humidityP.innerHTML = response.data.main.humidity;
   dateEl.innerHTML = formatDate(response.data.dt * 1000);
   timeEl.innerHTML = formatTime(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function handlePosition(position) {
