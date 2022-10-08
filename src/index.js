@@ -65,12 +65,15 @@ function showTemperature(response) {
   let tempNow = document.querySelector("#temp");
   let cityNow = document.querySelector("#city");
   let countryNow = document.querySelector("#country");
+  let descriptionElement = document.querySelector("#description");
   let temperature = Math.round(response.data.main.temp);
   let cityShown = response.data.name;
   let countryShown = response.data.sys.country;
+  let description = response.data.wheather[0].description;
   tempNow.innerHTML = `${temperature}`;
   cityNow.innerHTML = `${cityShown}`;
   countryNow.innerHTML = `${countryShown}`;
+  descriptionElement.innerHTML = `${description}`;
 }
 
 function handlePosition(position) {
