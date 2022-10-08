@@ -59,6 +59,8 @@ button:hover {
   position: relative;
   font-size: 13px;
   padding-top: 10px;
+}
+.descript {
   text-transform: capitalize;
 }
 .wheather-future {
