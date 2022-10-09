@@ -50,6 +50,7 @@ function search(city) {
   let apiKey = `a1f94fb539a22bb24c442c3aa550dfe5`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  autocomplete = "off";
 }
 function handleSubmit(event) {
   event.preventDefault();
@@ -62,11 +63,10 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
-  let tempdate = document.querySelector("#temp");
-  let citydate = document.querySelector("#city");
-  let countrydate = document.querySelector("#country");
+  let tempNow = document.querySelector("#temp");
+  let cityNow = document.querySelector("#city");
+  let countryNow = document.querySelector("#country");
   let descriptionElement = document.querySelector("#description");
-  let temperature = Math.round(response.data.main.temp);
   let cityShown = response.data.name;
   let countryShown = response.data.sys.country;
   let humidityP = document.querySelector("#humidity");
@@ -74,9 +74,11 @@ function showTemperature(response) {
   let dateEl = document.querySelector("#nowDate");
   let timeEl = document.querySelector("#nowTime");
   let iconElement = document.querySelector("#icon");
-  tempdate.innerHTML = `${temperature}`;
-  citydate.innerHTML = `${cityShown}`;
-  countrydate.innerHTML = `${countryShown}`;
+  let temp = Math.round(response.data.main.temp);
+
+  tempNow.innerHTML = `${temp}`;
+  cityNow.innerHTML = `${cityShown}`;
+  countryNow.innerHTML = `${countryShown}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   windS.innerHTML = Math.round(response.data.wind.speed);
   humidityP.innerHTML = response.data.main.humidity;
@@ -87,6 +89,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  celsiusTemp = response.data.main.temp;
 }
 
 function handlePosition(position) {
@@ -104,3 +107,28 @@ let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getLocation);
 
 search("Kyiv");
+
+// Celsius Fahrenheit changing
+
+function toFahrenheit(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
+}
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", toFahrenheit);
+
+function toCelsius(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp");
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+  temp.innerHTML = Math.round(celsiusTemp);
+}
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", toCelsius);
+
+let celsiusTemp = null;

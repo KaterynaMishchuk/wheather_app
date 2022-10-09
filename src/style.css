@@ -10,28 +10,27 @@ h1 {
   line-height: 48px;
   position: relative;
 }
-a {
+.temp {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  line-height: 60px;
+  margin-top: 20px;
+}
+.wheather-change {
   font-family: "Playfair Display", serif;
   font-size: 32px;
   position: relative;
   color: white;
   text-decoration: none;
 }
-a:hover {
+.wheather-change.active {
+  color: #ffffff70;
+  cursor: default;
+}
+.wheather-change:hover {
   color: #ffffffb9;
-  cursor: pointer;
+  cursor: default;
 }
-a:focus {
-  color: #ffffff96;
-}
-.temperature {
-  font-family: "Playfair Display", serif;
-  font-size: 42px;
-  line-height: 60px;
-  margin-top: 20px;
-  position: relative;
-}
-
 button {
   border-radius: 5px;
   border: 1px solid white;
