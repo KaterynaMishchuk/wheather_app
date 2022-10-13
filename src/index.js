@@ -44,6 +44,30 @@ function formatTime(timestamp) {
   }
   return `${hours}:${minutes}`;
 }
+//forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#show-forecast");
+  let forecastHTML = "";
+  let daysName = ["Sun", "Mon", "Tue", "Wen", "Thue", "Fri", "Sat"];
+  daysName.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col">
+                  <ul>
+                    <li class="days">${day}</li>
+                    <li class="small-icon">
+                      <i class="fa-solid fa-cloud"></i>
+                    </li>
+                    <li class="small-text">Cloudy</li>
+                    <li class="forecast">19℃</li>
+                    <li class="forecast">15℃</li>
+                  </ul>
+                </div>
+                `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
 
 //search
 function search(city) {
@@ -107,6 +131,7 @@ let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getLocation);
 
 search("Kyiv");
+displayForecast();
 
 // Celsius Fahrenheit changing
 
