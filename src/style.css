@@ -49,7 +49,7 @@ button:hover {
   color: white;
   position: relative;
   font-size: 13px;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 .descript {
   text-transform: capitalize;
@@ -76,11 +76,11 @@ video {
   top: 0;
   left: 0;
 }
-.big-icon {
+.big-icon img {
   position: relative;
-  font-size: 40px;
-  color: white;
-  text-align: right;
+  max-width: 85%;
+  left: 16px;
+  right: auto;
 }
 .small-icon {
   font-size: 28px;

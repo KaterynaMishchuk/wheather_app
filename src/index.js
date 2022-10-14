@@ -64,9 +64,9 @@ function displayForecast(response) {
                   <ul>
                     <li class="days">${formatDay(forecastDay.dt)}</li>
                     <li class="small-icon">
-                        <img src="http://openweathermap.org/img/wn/${
+                        <img src="images/${
                           forecastDay.weather[0].icon
-                        }@2x.png" alt="" width="52"/> 
+                        }.png" alt="" width="52"/> 
                     </li>
                     <li class="small-text">Cloudy</li>
                     <li class="forecast">${Math.round(
@@ -101,7 +101,6 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "1a6432c5ca7b6f9b0bee45c98d54ea71";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -131,7 +130,7 @@ function showTemperature(response) {
   timeEl.innerHTML = formatTime(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `images/${response.data.weather[0].icon}.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   celsiusTemp = response.data.main.temp;
