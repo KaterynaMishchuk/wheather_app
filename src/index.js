@@ -66,11 +66,15 @@ function displayForecast(response) {
                     <li class="small-icon">
                         <img src="http://openweathermap.org/img/wn/${
                           forecastDay.weather[0].icon
-                        }@2x.png" alt="" width="42"/> 
+                        }@2x.png" alt="" width="52"/> 
                     </li>
                     <li class="small-text">Cloudy</li>
-                    <li class="forecast">${forecastDay.temp.max}℃</li>
-                    <li class="forecast">${forecastDay.temp.min}℃</li>
+                    <li class="forecast">${Math.round(
+                      forecastDay.temp.max
+                    )}℃</li>
+                    <li class="forecast">${Math.round(
+                      forecastDay.temp.min
+                    )}℃</li>
                   </ul>
                 </div>
                 `;
