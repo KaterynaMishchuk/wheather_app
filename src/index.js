@@ -45,10 +45,11 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 //forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#show-forecast");
   let forecastHTML = "";
-  let daysName = ["Sun", "Mon", "Tue", "Wen", "Thue", "Fri", "Sat"];
+  let daysName = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
   daysName.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -71,7 +72,7 @@ function displayForecast() {
 
 //search
 function search(city) {
-  let apiKey = `a1f94fb539a22bb24c442c3aa550dfe5`;
+  let apiKey = "1a6432c5ca7b6f9b0bee45c98d54ea71";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
   autocomplete = "off";
@@ -85,6 +86,13 @@ function handleSubmit(event) {
 }
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "1a6432c5ca7b6f9b0bee45c98d54ea71";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemperature(response) {
   let tempNow = document.querySelector("#temp");
@@ -114,10 +122,11 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   celsiusTemp = response.data.main.temp;
+  getForecast(response.data.coord);
 }
 
 function handlePosition(position) {
-  let apiKey = "a1f94fb539a22bb24c442c3aa550dfe5";
+  let apiKey = "1a6432c5ca7b6f9b0bee45c98d54ea71";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -129,9 +138,6 @@ function getLocation(event) {
 }
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getLocation);
-
-search("Kyiv");
-displayForecast();
 
 // Celsius Fahrenheit changing
 
@@ -157,3 +163,6 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", toCelsius);
 
 let celsiusTemp = null;
+
+search("Kyiv");
+displayForecast();
