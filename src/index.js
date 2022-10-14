@@ -152,30 +152,5 @@ function getLocation(event) {
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", getLocation);
 
-// Celsius Fahrenheit changing
-
-function toFahrenheit(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp");
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrenheitTemp);
-}
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", toFahrenheit);
-
-function toCelsius(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp");
-  fahrenheit.classList.remove("active");
-  celsius.classList.add("active");
-  temp.innerHTML = Math.round(celsiusTemp);
-}
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", toCelsius);
-
-let celsiusTemp = null;
-
 search("Kyiv");
 displayForecast();

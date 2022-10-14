@@ -23,14 +23,6 @@ h1 {
   color: white;
   text-decoration: none;
 }
-.wheather-change.active {
-  color: #ffffff70;
-  cursor: default;
-}
-.wheather-change:hover {
-  color: #ffffffb9;
-  cursor: default;
-}
 button {
   border-radius: 5px;
   border: 1px solid white;
